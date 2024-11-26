@@ -1,25 +1,35 @@
 public class UserManager {
     public void gererUtilisateur(String action, String nom) {
-        if (action.equals("ajouter")) {
-            if (nom != null && !nom.isEmpty()) {
-                System.out.println("Utilisateur " + nom + " ajouté.");
-            } else {
-                System.out.println("Erreur : nom invalide.");
-            }
-        } else if (action.equals("supprimer")) {
-            if (nom != null && !nom.isEmpty()) {
-                System.out.println("Utilisateur " + nom + " supprimé.");
-            } else {
-                System.out.println("Erreur : nom invalide.");
-            }
-        } else if (action.equals("rechercher")) {
-            if (nom != null && !nom.isEmpty()) {
-                System.out.println("Recherche de l'utilisateur " + nom + ".");
-            } else {
-                System.out.println("Erreur : nom invalide.");
-            }
-        } else {
-            System.out.println("Action inconnue.");
+        if (nom == null || nom.isEmpty()) {
+            System.out.println("Erreur : nom invalide.");
+            return;
         }
+        
+        switch (action) {
+            case "ajouter":
+                ajouterUtilisateur(nom);
+                break;
+            case "supprimer":
+                supprimerUtilisateur(nom);
+                break;
+            case "rechercher":
+                rechercherUtilisateur(nom);
+                break;
+            default:
+                System.out.println("Action inconnue.");
+                break;
+        }
+    }
+
+    private void ajouterUtilisateur(String nom) {
+        System.out.println("Utilisateur " + nom + " ajouté.");
+    }
+
+    private void supprimerUtilisateur(String nom) {
+        System.out.println("Utilisateur " + nom + " supprimé.");
+    }
+
+    private void rechercherUtilisateur(String nom) {
+        System.out.println("Recherche de l'utilisateur " + nom + ".");
     }
 }
